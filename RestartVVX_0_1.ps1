@@ -5,10 +5,18 @@ Verion 0.1
 OCWS
 #>
 
-param([string]$userCsv = "C:\Sources\users.csv",[string]$IPfilePath = "C:\Sources\IPfile.csv")
+param([string]$IPfilePath = "C:\Sources\IPfile.csv")
 
+#User CSV loading
+$VVXList = $null
+$VVXList = Import-Csv $IPfilePath
+$count = $VVXList.count
+Write-Host "VVX phone count within CSV file=" $count
+Write-Host ""
 
-$ClientIP = '10.220.201.93'
+foreach ($VVX in $VVXList)
+{
+$ClientIP = $VVX.IP_address
 
 ##REBOOT REST CALL
 $user = 'Polycom'
