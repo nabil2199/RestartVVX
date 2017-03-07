@@ -1,11 +1,16 @@
 
 <#
 VVX Restart
-Verion 0.1
+Verion 0.2
 OCWS
 #>
 
 param([string]$IPfilePath = "C:\Sources\IPfile.csv")
+
+#Log file path 
+#$LogfilePath = "C:\Sources\Restart_log.txt"
+$date=(Get-Date).ToString('yyyy-MM-dd_HH-mm-ss')
+$LogfilePath=$PSScriptRoot+"\Restart_log-"+$date+".txt"
 
 #User CSV loading
 $VVXList = $null
