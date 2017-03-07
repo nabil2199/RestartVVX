@@ -34,3 +34,4 @@ try {
                     Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription -foreground "red"
     }
 }
+}
